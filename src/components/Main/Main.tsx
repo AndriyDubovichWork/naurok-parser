@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import getAnswers from '../../api/get/getAnswers';
 
@@ -9,16 +10,17 @@ const Main = () => {
 			setAnswers(res.data);
 		});
 	}, []);
-	useEffect(() => {
-		console.log(Answers);
-	}, [Answers]);
+
 	return (
 		<div>
+			<TextField variant='outlined' label='topic' />
+			<TextField variant='outlined' label='grade' />
+			<TextField variant='outlined' label='subjectID' />
 			{Answers
 				? Answers.map((data: any) => {
 						return <div>{data.link}</div>;
 				  })
-				: 'loading'}
+				: 'error'}
 		</div>
 	);
 };
