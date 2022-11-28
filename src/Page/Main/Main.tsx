@@ -1,6 +1,6 @@
-import { TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import getAnswers from '../../api/get/getAnswers';
+import InputForm from '../../components/Form/InputsForm/InputsForm';
 
 const Main = () => {
 	const [Answers, setAnswers] = useState([]);
@@ -13,14 +13,12 @@ const Main = () => {
 
 	return (
 		<div>
-			<TextField variant='outlined' label='topic' />
-			<TextField variant='outlined' label='grade' />
-			<TextField variant='outlined' label='subjectID' />
-			{Answers
+			<InputForm />
+			{/* {Answers
 				? Answers.map((data: any) => {
 						return <div>{data.link}</div>;
 				  })
-				: 'error'}
+				: 'error'} */}
 		</div>
 	);
 };
