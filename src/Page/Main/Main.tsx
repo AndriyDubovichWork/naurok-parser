@@ -5,11 +5,11 @@ import InputForm from '../../components/Form/InputsForm/InputsForm';
 const Main = () => {
 	const [Answers, setAnswers] = useState([]);
 
-	useEffect(() => {
-		getAnswers().then((res: any) => {
-			setAnswers(res.data);
-		});
-	}, []);
+	// useEffect(() => {
+	// 	getAnswers().then((res: any) => {
+	// 		setAnswers(res.data);
+	// 	});
+	// }, []);
 
 	return (
 		<div>

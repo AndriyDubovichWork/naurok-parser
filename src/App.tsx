@@ -1,11 +1,13 @@
 import React from 'react';
+import { ThemeProvider } from '@mui/material';
 import Main from './Page/Main/Main';
+import { lightTheme } from './themes/light';
 
 function App() {
 	return (
-		<div>
+		<ThemeProvider theme={lightTheme}>
 			<Main />
-		</div>
+		</ThemeProvider>
 	);
 }
 
