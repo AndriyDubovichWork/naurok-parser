@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
-import { TextField, TextFieldProps } from 'formik-mui';
-import StyledButton from '../../UI/StyledButton/StyledButton';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { TextField, Autocomplete } from 'formik-mui';
+import { Formik, Form, Field } from 'formik';
 import TestInputschema from '../../../schemas/TestInput';
 import { Button } from '@mui/material';
-
-const InputForm = () => {
+import SubjectsIpnut from '../Subjects/Subjects';
+import getAnswers from '../../../api/get/getAnswers';
+const InputForm = ({ subjects, setAnswers }: any) => {
 	return (
 		<Formik
-			initialValues={{ topic: '', grade: '', subjectID: '', questionsQuantity: '' }}
-			onSubmit={(values, actions) => {
+			initialValues={{ topic: '', grade: '', subjectID: 1, questionsQuantity: '' }}
+			onSubmit={async (values, actions) => {
+				const res = await getAnswers(
+					values.topic,
+					values.grade,
+					values.subjectID,
+					values.questionsQuantity
+				);
+				console.log(res);
+
+				setAnswers(res.data);
 				setTimeout(() => {
 					console.log(values);
 					actions.resetForm();
@@ -21,7 +30,6 @@ const InputForm = () => {
 				return (
 					<Form>
 						<Field type='text' name='topic' variant='filled' component={TextField} label='topic' />
-
 						<Field
 							type='number'
 							name='grade'
@@ -29,15 +37,6 @@ const InputForm = () => {
 							component={TextField}
 							label='grade'
 						/>
-
-						<Field
-							type='number'
-							name='subjectID'
-							variant='filled'
-							component={TextField}
-							label='subject ID'
-						/>
-
 						<Field
 							type='number'
 							name='questionsQuantity'
@@ -45,6 +44,7 @@ const InputForm = () => {
 							component={TextField}
 							label='questions Quantity'
 						/>
+						<SubjectsIpnut subjects={subjects} />
 						<Button
 							disabled={isSubmitting || !isValid}
 							type='submit'
