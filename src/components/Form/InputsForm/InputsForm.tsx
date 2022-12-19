@@ -10,15 +10,10 @@ const InputForm = ({ subjects, setAnswers }: any) => {
 		<Formik
 			initialValues={{ topic: '', grade: '', subjectID: 1, questionsQuantity: '' }}
 			onSubmit={async (values, actions) => {
-				const res = await getAnswers(
-					values.topic,
-					values.grade,
-					values.subjectID,
-					values.questionsQuantity
+				setAnswers(
+					await getAnswers(values.topic, values.grade, values.subjectID, values.questionsQuantity)
+						.data
 				);
-				console.log(res);
-
-				setAnswers(res.data);
 				setTimeout(() => {
 					console.log(values);
 					actions.resetForm();
