@@ -23,7 +23,11 @@ const SubjectsIpnut = ({ subjects }: SubjectsIpnutType) => {
 				) : (
 					subjects.map((subject: subjectType) => {
 						return (
-							<MenuItem key={+subject.id} value={subject.id}>
+							<MenuItem
+								key={+subject.id}
+								value={subject.id}
+								sx={{ color: '#fff', backgroundColor: '#000' }}
+							>
 								{subject.subject}
 							</MenuItem>
 						);

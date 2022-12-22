@@ -5,19 +5,26 @@ import TestInputschema from '../../../schemas/TestInput';
 import { Button } from '@mui/material';
 import SubjectsIpnut from '../Subjects/Subjects';
 import getAnswers from '../../../api/get/getAnswers';
-const InputForm = ({ subjects, setAnswers }: any) => {
+const InputForm = ({ subjects, setAnswers, setError }: any) => {
 	return (
 		<Formik
 			initialValues={{ topic: '', grade: '', subjectID: 1, questionsQuantity: '' }}
 			onSubmit={async (values, actions) => {
-				setAnswers(
-					await getAnswers(values.topic, values.grade, values.subjectID, values.questionsQuantity)
-						.data
+				const Answers = await getAnswers(
+					values.topic,
+					values.grade,
+					values.subjectID,
+					values.questionsQuantity,
+					setError
 				);
-				setTimeout(() => {
-					console.log(values);
-					actions.resetForm();
-				}, 5000);
+				if (Answers.data.isArray()) {
+					console.log(Answers);
+					setAnswers(Answers.data);
+				} else {
+					console.log('error');
+				}
+
+				actions.resetForm();
 			}}
 			validationSchema={TestInputschema}
 		>

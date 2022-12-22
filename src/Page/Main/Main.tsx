@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import getAnswers from '../../api/get/getAnswers';
 import getSubjectIDs from '../../api/get/getSubjectIDs';
 import InputForm from '../../components/Form/InputsForm/InputsForm';
-import SubjectsIpnut from '../../components/Form/Subjects/Subjects';
+import NotFound from '../NotFound';
 
 const Main = () => {
 	const [Answers, setAnswers] = useState([]);
 	const [subjects, setSubjects] = useState([]);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
 		getSubjectIDs().then((value: any) => {
@@ -16,16 +16,22 @@ const Main = () => {
 
 	return (
 		<div>
-			<InputForm subjects={subjects} setAnswers={setAnswers} />
-			{Answers
-				? Answers.map((data: any) => {
+			<InputForm subjects={subjects} setAnswers={setAnswers} setError={setError} />
+
+			{error}
+			<ol>
+				{Answers ? (
+					Answers.map((data: any) => {
 						return (
-							<a href={data.link} key={data.link}>
-								{data.link}
-							</a>
+							<li key={data.link}>
+								<a href={data.link}>{data.link}</a>
+							</li>
 						);
-				  })
-				: 'error'}
+					})
+				) : (
+					<NotFound />
+				)}
+			</ol>
 		</div>
 	);
 };
