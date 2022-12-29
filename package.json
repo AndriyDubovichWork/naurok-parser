@@ -1,7 +1,7 @@
 {
 	"name": "naurok-parser",
 	"version": "0.1.0",
-	"homepage ": "http://AndriyDubovichWork.github.io/naurok-parser",
+	"homepage ": "https://andriydubovichwork.github.io/naurok-parser/",
 	"private": true,
 	"dependencies": {
 		"@emotion/react": "^11.10.5",
