@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/AndriyDubovichWork/naurok-parser/static/css/main.3c0c307c.css",
-    "main.js": "/AndriyDubovichWork/naurok-parser/static/js/main.53cf7ecd.js",
-    "static/js/787.e9dbe82f.chunk.js": "/AndriyDubovichWork/naurok-parser/static/js/787.e9dbe82f.chunk.js",
-    "index.html": "/AndriyDubovichWork/naurok-parser/index.html",
-    "main.3c0c307c.css.map": "/AndriyDubovichWork/naurok-parser/static/css/main.3c0c307c.css.map",
-    "main.53cf7ecd.js.map": "/AndriyDubovichWork/naurok-parser/static/js/main.53cf7ecd.js.map",
-    "787.e9dbe82f.chunk.js.map": "/AndriyDubovichWork/naurok-parser/static/js/787.e9dbe82f.chunk.js.map"
+    "main.css": "/static/css/main.3c0c307c.css",
+    "main.js": "/static/js/main.fd1996c3.js",
+    "static/js/787.e9dbe82f.chunk.js": "/static/js/787.e9dbe82f.chunk.js",
+    "index.html": "/index.html",
+    "main.3c0c307c.css.map": "/static/css/main.3c0c307c.css.map",
+    "main.fd1996c3.js.map": "/static/js/main.fd1996c3.js.map",
+    "787.e9dbe82f.chunk.js.map": "/static/js/787.e9dbe82f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c0c307c.css",
-    "static/js/main.53cf7ecd.js"
+    "static/js/main.fd1996c3.js"
   ]
 }
