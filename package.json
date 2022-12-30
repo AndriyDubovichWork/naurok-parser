@@ -1,7 +1,7 @@
 {
 	"name": "naurok-parser",
 	"version": "0.1.0",
-	"homepage ": "https://andriydubovichwork.github.io/naurok-parser/",
+	"homepage": "https://andriydubovichwork.github.io/naurok-parser/",
 	"private": true,
 	"dependencies": {
 		"@emotion/react": "^11.10.5",
@@ -31,8 +31,8 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"predeploy": "npm run build",
 		"build": "react-scripts build",
+		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
